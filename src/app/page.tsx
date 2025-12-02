@@ -48,7 +48,7 @@ export default function HomePage() {
             Where Food Is Made With Love!
           </p>
           <Link
-            href="/kdt-restaurant-menu"
+            href="/menu/"
             className="inline-block px-7 py-3 border-2 border-yellow-500 rounded-lg uppercase font-bold hover:bg-yellow-600 hover:border-yellow-600 transition transform hover:scale-105"
           >
             Explore Our Menu
@@ -67,7 +67,7 @@ export default function HomePage() {
             return (
               <Link
                 key={cat}
-                href={`/kdt-restaurant-menu#category-${catId}`}
+                href={`/menu/#category-${catId}`}
                 className="px-5 py-3 border-2 border-yellow-500 rounded-lg font-bold uppercase hover:bg-yellow-600 hover:border-yellow-600 transition transform hover:scale-105"
               >
                 {cat}
