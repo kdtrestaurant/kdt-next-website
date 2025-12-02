@@ -7,11 +7,11 @@ import Image from "next/image";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Menu", href: "/menu" },
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about/" },
+  { name: "Menu", href: "/menu/" },
+  { name: "Blog", href: "/blog/" },
+  { name: "FAQ", href: "/faq/" },
+  { name: "Contact", href: "/contact/" },
 ];
 
 export default function Navbar() {

@@ -33,6 +33,10 @@ jobs:
       - name: Build & Export static site
         run: npm run build:gh
 
+      - name: Add .nojekyll to bypass Jekyll
+        run: |
+          touch ./out/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
