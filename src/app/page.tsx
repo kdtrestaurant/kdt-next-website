@@ -90,7 +90,7 @@ export default function HomePage() {
           {GALLERY_IMAGES.map((img, index) => (
             <div key={index} className="rounded-lg overflow-hidden shadow-lg">
               <Image
-                src={img}
+                src={`${base}${img}`}
                 alt="KDT Food"
                 width={400}
                 height={400}
