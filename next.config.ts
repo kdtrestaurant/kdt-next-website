@@ -8,9 +8,8 @@ import { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export", // enables `next export` compatible build
-  // Project site deployment under subpath
-  basePath: "/kdt-next-website",
-  assetPrefix: "/kdt-next-website/",
+  // Custom domain deployment at root (no subpath)
+  // Remove basePath/assetPrefix so assets resolve at `/_next/*` and `/images/*`.
   images: { unoptimized: true }, // required for static export when using the app router
   trailingSlash: true, // makes relative links safer on GitHub Pages
   // Silence Turbopack root warnings by explicitly setting the root.
@@ -19,7 +18,8 @@ const nextConfig: NextConfig = {
     root: __dirname,
   },
   env: {
-    NEXT_PUBLIC_BASE_PATH: "/kdt-next-website",
+    // Empty base path for root domain
+    NEXT_PUBLIC_BASE_PATH: "",
   },
   webpack: (config) => {
     config.resolve.alias = {
