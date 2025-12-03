@@ -7,6 +7,7 @@ import menuData from '../../../data/menu.json';
 
 export default function MenuPage() {
   const router = useRouter();
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
@@ -104,7 +105,7 @@ export default function MenuPage() {
       {/* Banner */}
       <div className="menu-banner relative max-w-[1800px] h-[400px] mx-auto rounded-[20px] overflow-hidden mb-10">
         <Image
-          src="/images/menu-KDT-Menu-Banner.webp"
+          src={`${base}/images/menu-KDT-Menu-Banner.webp`}
           alt="KDT Restaurant Menu Banner"
           fill
           className="object-cover object-center"
@@ -140,7 +141,7 @@ export default function MenuPage() {
 
               <div className="flex items-center space-x-2">
                 <Image
-                  src="/images/veg-icon.webp"
+                  src={`${base}/images/veg-icon.webp`}
                   width={30}
                   height={30}
                   alt="Vegetarian Icon"
@@ -166,7 +167,7 @@ export default function MenuPage() {
               {category.image && (
                 <div className="text-center mb-5">
                   <Image
-                    src={category.image}
+                    src={`${base}${category.image}`}
                     alt={category.category}
                     width={700}
                     height={400}
@@ -193,7 +194,7 @@ export default function MenuPage() {
                         >
                           {item.vegetarian ? (
                             <Image
-                              src="/images/veg-icon.webp"
+                              src={`${base}/images/veg-icon.webp`}
                               width={30}
                               height={30}
                               alt="Vegetarian"

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function AboutPage() {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <div className="about-page text-white">
 
@@ -20,7 +21,7 @@ export default function AboutPage() {
 
           <div className="owner-image w-full md:w-auto">
             <Image
-              src="/images/owner-chef.webp"
+              src={`${base}/images/owner-chef.webp`}
               alt="Owner & Chef Harpreet"
               width={450}
               height={450}
