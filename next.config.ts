@@ -8,8 +8,7 @@ import { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export", // enables `next export` compatible build
-  basePath: "/kdt-next-website", // project pages base path; remove if deploying to user/org root
-  assetPrefix: "/kdt-next-website/", // ensure assets load correctly under sub-path
+  // Removed basePath/assetPrefix for root deployment (custom domain or user/org site)
   images: { unoptimized: true }, // required for static export when using the app router
   trailingSlash: true, // makes relative links safer on GitHub Pages
   // Silence Turbopack root warnings by explicitly setting the root.

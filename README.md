@@ -37,22 +37,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Deploy on GitHub Pages
 
-This project is configured for GitHub Pages (project site) at:
+This project supports both project subpath sites and root sites.
 
-```
-https://kdtrestaurant.github.io/kdt-next-website/
-```
+Current configuration deploys to the root (no subpath). If deploying to a project path, set `basePath` and `assetPrefix` accordingly.
 
 ### 1. Configuration Changes
 
-The following adjustments were added in `next.config.ts`:
+`next.config.ts`:
 
 - `output: "export"` to enable static export.
-- `basePath` and `assetPrefix` set to `/kdt-next-website` so assets and routes work under the project sub-path.
 - `images.unoptimized: true` because optimized images are not supported in static export.
-- `trailingSlash: true` for more reliable relative links on GitHub Pages.
-
-If you later move to a user/organization site (e.g. `kdtrestaurant.github.io` repo named exactly that) remove `basePath` & `assetPrefix`.
+- `trailingSlash: true` for reliable relative links on static hosts.
+- No `basePath` or `assetPrefix` when deploying to a root site or custom domain.
 
 ### 2. Build Locally
 
@@ -68,11 +64,11 @@ Test locally by serving the `out` folder (the base path must be preserved):
 npx serve out
 ```
 
-Visit `http://localhost:3000/kdt-next-website/` (port may vary) to confirm.
+Visit `http://localhost:3000/` (port may vary) to confirm.
 
 ### 3. GitHub Actions Deployment
 
-The workflow file at `.github/workflows/deploy.yml` builds and exports, then publishes `out` to Pages on every push to `main`.
+The workflow file at `.github/workflows/deploy.yml` builds and publishes `out` to Pages on every push to `main`. It adds `.nojekyll` to ensure `_next/*` assets are served.
 
 ### 4. Enable Pages (First Time Only)
 
@@ -92,13 +88,13 @@ git push origin main
 ### 6. Limitations & Notes
 
 - Server-side rendering, API routes, and dynamic functions won't run—this is a fully static export.
-- Use relative navigation via Next.js `<Link>`; it respects `basePath` automatically.
-- For image paths use leading slash (e.g. `/images/foo.png`) so `basePath` prefixes them.
+- Use Next.js `<Link>` with leading slash routes (e.g. `/about/`, `/menu/`).
+- For image paths use leading slash (e.g. `/images/foo.png`).
 - Remove `trailingSlash` if you prefer clean URLs; ensure all internal links update accordingly.
 
 ### 7. Troubleshooting
 
-- 404 on assets: Confirm `assetPrefix` matches the repository name exactly.
+- 404 on assets: For project sites ensure `basePath`/`assetPrefix` match the repository name exactly; for root sites remove them.
 - Blank styling: Ensure CSS files are within the exported `out/_next/` structure—rebuild if missing.
-- Wrong URL root: Remove `basePath`/`assetPrefix` when deploying to a root user/org site.
+- `.nojekyll` is required so `_next/*` assets are served on Pages.
 
