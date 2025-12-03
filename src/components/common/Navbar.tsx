@@ -16,6 +16,7 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -26,7 +27,7 @@ export default function Navbar() {
         <div className="logo">
           <Link href="/">
             <Image
-              src="/images/Header-Logo.webp" 
+              src={`${base}/images/Header-Logo.webp`} 
               alt="KDT Logo"
               width={150}
               height={50}

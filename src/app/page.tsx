@@ -31,13 +31,14 @@ const GALLERY_IMAGES = [
 ];
 
 export default function HomePage() {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <main className="text-white">
       {/* HERO */}
       <section
         className="relative w-full h-[75vh] flex items-center justify-center bg-cover bg-center"
         style={{
-          backgroundImage: `url('/images/main-page.webp')`,
+          backgroundImage: `url('${base}/images/main-page.webp')`,
         }}
       >
         <div className="text-center z-10">
@@ -104,7 +105,7 @@ export default function HomePage() {
       <section className="py-12">
         <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-xl">
           <Image
-            src="/images/main-KDT-Interior.webp"
+            src={`${base}/images/main-KDT-Interior.webp`}
             alt="KDT Interior"
             width={1600}
             height={450}

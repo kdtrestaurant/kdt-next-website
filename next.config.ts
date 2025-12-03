@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: "/kdt-next-website",
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
