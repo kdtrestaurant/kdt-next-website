@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={poly.variable}>
-      <body className="antialiased">
+      <body>
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -59,7 +59,7 @@ export default function HomePage() {
 
       {/* MENU CATEGORY BUTTONS */}
       <section className="py-12 relative">
-        <h2 className="text-3xl md:text-4xl font-bold uppercase text-center text-yellow-500 mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold uppercase text-center text-[#e4b745] mb-2">
           Menu Categories
         </h2>
         <div className="flex flex-wrap justify-center gap-4">
