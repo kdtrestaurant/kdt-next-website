@@ -12,8 +12,8 @@ const poly = Poly({
 });
 
 export const metadata = {
-  title: "NuTab Digital",
-  description: "Custom software, web development, and digital solutions",
+  title: "KDT Restaurant - Delicious Food Made With Love",
+  description: "Experience the best of Indian and International cuisine at KDT Restaurant. Explore our diverse menu, special offers, and more!",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

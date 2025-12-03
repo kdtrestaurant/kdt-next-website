@@ -4,21 +4,40 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [status, setStatus] = useState<'success' | 'error' | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
-    // Example: replace with your real API submission logic
-    const success = true; // simulate success/failure
+    setLoading(true);
+    setStatus(null);
 
-    if (success) {
-      setStatus('success');
-    } else {
-      setStatus('error');
-    }
-
-    // reset form if needed
-    e.currentTarget.reset();
+    fetch('https://formspree.io/f/xwpgbagq', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: data,
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          setStatus('success');
+          form.reset();
+          return;
+        }
+        // Try to parse error from Formspree
+        try {
+          const json = await res.json();
+          // Optionally, you could surface json.errors
+        } catch {}
+        setStatus('error');
+      })
+      .catch(() => {
+        setStatus('error');
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -71,6 +90,8 @@ export default function ContactPage() {
           <form
             className="kdt-contact-form bg-[#111] border border-[#333] rounded-xl p-8 flex flex-col gap-5 shadow-lg"
             onSubmit={handleSubmit}
+            action="https://formspree.io/f/xwpgbagq"
+            method="POST"
           >
             <div>
               <label htmlFor="name" className="block font-bold text-[#e4b745] mb-2">
@@ -113,9 +134,10 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="bg-[#e4b745] text-black font-extrabold px-6 py-3 rounded-lg self-center hover:bg-[#f2cc4d] hover:-translate-y-1 hover:shadow-lg transition-all"
+              className="bg-[#e4b745] text-black font-extrabold px-6 py-3 rounded-lg self-center hover:bg-[#f2cc4d] hover:-translate-y-1 hover:shadow-lg transition-all disabled:opacity-60"
+              disabled={loading}
             >
-              Send Message
+              {loading ? 'Sending…' : 'Send Message'}
             </button>
           </form>
         </div>
