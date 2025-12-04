@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
   env: {
     // Empty base path for root domain
     NEXT_PUBLIC_BASE_PATH: "",
+    // Google Analytics (GA4) Measurement ID
+    NEXT_PUBLIC_GA_ID: "G-0TEMH9GD4J",
   },
   webpack: (config) => {
     config.resolve.alias = {
