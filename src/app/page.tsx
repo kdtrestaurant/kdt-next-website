@@ -21,13 +21,13 @@ const MENU_CATEGORIES = [
 const GALLERY_IMAGES = [
   "/images/gallery-Paneer-Pakora.webp",
   "/images/gallery-lasagna.webp",
-  "/images/gallery-Chole-Bhatura.webp",
-  "/images/gallery-Chaat.webp",
-  "/images/gallery-Gol-Gappa.webp",
-  "/images/gallery-Meat.webp",
-  "/images/gallery-Custom-Pizza.webp",
   "/images/gallery-Golden-Chicken-Wings.webp",
+  "/images/gallery-Chaat.webp",
+  "/images/gallery-Meat.webp",
+  "/images/gallery-Chole-Bhatura.webp",
+  "/images/gallery-Custom-Pizza.webp",
   "/images/gallery-Chicken.webp",
+  "/images/gallery-Gol-Gappa.webp",
 ];
 
 export default function HomePage() {
@@ -64,11 +64,11 @@ export default function HomePage() {
         </h2>
         <div className="flex flex-wrap justify-center gap-4">
           {MENU_CATEGORIES.map((cat) => {
-            const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
             return (
               <Link
                 key={cat}
-                href={`/menu/#category-${catId}`}
+                href={`/menu/?category=${encodeURIComponent(cat)}`}
                 className="px-5 py-3 border-2 border-yellow-500 rounded-lg font-bold uppercase hover:bg-yellow-600 hover:border-yellow-600 transition transform hover:scale-105"
               >
                 {cat}
@@ -103,13 +103,14 @@ export default function HomePage() {
 
       {/* BOTTOM RESTAURANT BANNER */}
       <section className="py-12">
-        <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+        <div className="w-full rounded-2xl overflow-hidden shadow-xl">
           <Image
             src={`${base}/images/main-KDT-Interior.webp`}
             alt="KDT Interior"
-            width={1600}
-            height={450}
-            className="w-full h-full object-cover"
+            width={2200}
+            height={1095}
+            className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+            priority
           />
         </div>
       </section>

@@ -41,7 +41,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="contact-page bg-black text-white px-4 md:px-8 lg:px-16">
+    <div className="contact-page bg-black text-white px-4 md:px-8 lg:px-16 py-20">
+
       {/* HERO SECTION */}
       <section className="contact-hero max-w-3xl mx-auto text-center my-16">
         <h1 className="text-4xl md:text-5xl font-bold text-[#e4b745] mb-4">

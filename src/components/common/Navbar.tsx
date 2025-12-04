@@ -4,6 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
@@ -27,7 +28,7 @@ export default function Navbar() {
         <div className="logo">
           <Link href="/">
             <Image
-              src={`${base}/images/Header-Logo.webp`} 
+              src={`${base}/images/Header-Logo.webp`}
               alt="KDT Logo"
               width={150}
               height={50}
@@ -35,17 +36,23 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="font-semibold hover:text-yellow-500 transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = usePathname() === item.href;
+
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={
+                  `font-semibold transition-all duration-200 
+           ${isActive ? "text-yellow-500 scale-110" : "hover:text-yellow-500"}`
+                }
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile Toggle */}
@@ -65,11 +72,13 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="px-5 py-2 font-semibold hover:text-yellow-500"
+              className={`px-5 py-2 font-semibold transition-all duration-200 
+              ${usePathname() === item.href ? "text-yellow-500 scale-110" : "hover:text-yellow-500"}`}
               onClick={() => setIsOpen(false)}
             >
               {item.name}
             </Link>
+
           ))}
         </nav>
       )}
