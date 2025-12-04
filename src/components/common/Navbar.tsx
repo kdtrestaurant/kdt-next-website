@@ -1,4 +1,3 @@
-// src/components/common/Navbar.tsx
 "use client";
 
 import { useState } from "react";
@@ -17,6 +16,7 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname(); // ✅ call hook at top level
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -36,18 +36,17 @@ export default function Navbar() {
           </Link>
         </div>
 
+        {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
           {NAV_ITEMS.map((item) => {
-            const isActive = usePathname() === item.href;
-
+            const isActive = pathname === item.href; // use top-level value
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={
-                  `font-semibold transition-all duration-200 
-           ${isActive ? "text-yellow-500 scale-110" : "hover:text-yellow-500"}`
-                }
+                className={`font-semibold transition-all duration-200 ${
+                  isActive ? "text-yellow-500 scale-110" : "hover:text-yellow-500"
+                }`}
               >
                 {item.name}
               </Link>
@@ -67,19 +66,22 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden flex flex-col bg-black w-full absolute top-full left-0 py-4">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`px-5 py-2 font-semibold transition-all duration-200 
-              ${usePathname() === item.href ? "text-yellow-500 scale-110" : "hover:text-yellow-500"}`}
-              onClick={() => setIsOpen(false)}
-            >
-              {item.name}
-            </Link>
-
-          ))}
+        <nav className="md:hidden flex flex-col items-center bg-black w-full absolute top-full left-0 py-4">
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`px-5 py-2 font-semibold transition-all duration-200 ${
+                  isActive ? "text-yellow-500 scale-110" : "hover:text-yellow-500"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
       )}
     </header>

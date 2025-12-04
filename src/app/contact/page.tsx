@@ -31,7 +31,7 @@ export default function ContactPage() {
         try {
           const json = await res.json();
           // Optionally, you could surface json.errors
-        } catch {}
+        } catch { }
         setStatus('error');
       })
       .catch(() => {
@@ -55,7 +55,7 @@ export default function ContactPage() {
 
       <section className="contact-container max-w-3xl mx-auto flex flex-col md:flex-row gap-12 mb-16">
         {/* INFO SECTION */}
-        <div className="kdt-contact-info bg-[#111] p-6 md:p-8 rounded-xl shadow-lg text-center flex-1">
+        <div className="kdt-contact-info bg-[#111] p-6 md:p-8 rounded-xl shadow-lg flex-1 flex flex-col justify-center items-center text-center">
           <h2 className="text-2xl font-bold text-[#e4b745] mb-4">Get in Touch</h2>
 
           <p className="mb-2"><strong>Phone:</strong> (604) 490-4424</p>
