@@ -131,7 +131,7 @@ export default function MenuPage() {
               onClick={() => toggleCategory(index, category.category)}
               className={`
                 w-full flex justify-between items-center mb-2 px-4 py-3 rounded transition-all cursor-pointer
-                ${isOpen 
+                ${isOpen
                   ? "bg-[#e4b745] text-black scale-[1.02]"
                   : "bg-[#111] text-[#e4b745] hover:bg-[#222] hover:scale-[1.02]"
                 }
@@ -140,20 +140,23 @@ export default function MenuPage() {
               <h2 className="text-3xl font-semibold">{category.category}</h2>
 
               <div className="flex items-center space-x-2">
-                <Image
-                  src={`${base}/images/veg-icon.webp`}
-                  width={30}
-                  height={30}
-                  alt="Vegetarian Icon"
-                  className={`inline-block md:${isOpen ? "inline-block" : "hidden"}`}
-                />
+                {isOpen && (
+                  <>
+                    <Image
+                      src={`${base}/images/veg-icon.webp`}
+                      width={30}
+                      height={30}
+                      alt="Vegetarian Icon"
+                      className="inline-block"
+                    />
 
-                <span
-                  className={`inline md:${isOpen ? "inline" : "hidden"} text-sm opacity-80`}
-                >
-                  = Vegetarian
-                </span>
+                    <span className="text-sm opacity-80">
+                      = Vegetarian
+                    </span>
+                  </>
+                )}
               </div>
+
             </button>
 
             {/* COLLAPSIBLE WRAPPER */}

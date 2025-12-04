@@ -95,9 +95,7 @@
       {"name":"Chicken Alfredo","price":"$16.99","vegetarian":false},
       {"name":"Chicken Quesadilla","price":"$16.99","vegetarian":false},
       {"name":"Veggie Lasagna","price":"$9.99","vegetarian":true},
-      {"name":"Veggie Noodle","price":"$9.99","vegetarian":true},
-      {"name":"Small Ranch","desc":"$0.50 or 3 for $1","vegetarian":true},
-      {"name":"Big Ranch","price":"$1.00 each","vegetarian":true}
+      {"name":"Veggie Noodle","price":"$9.99","vegetarian":true}
     ]
   },
   {
@@ -106,6 +104,8 @@
     "items": [
       {"name":"Red Chutney","desc":"S $1.00 M $2.00 Lg $5.00","vegetarian":true},
       {"name":"Mint Sauce","desc":"S $1.50 M $2.50 Lg $5.50","vegetarian":true},
+      {"name":"Small Ranch","desc":"$0.50 or 3 for $1","vegetarian":true},
+      {"name":"Big Ranch","price":"$1.00 each","vegetarian":true},
       {"name":"Side Salad","price":"$4.99","vegetarian":true},
       {"name":"Fries","price":"$6.99","vegetarian":true},
       {"name":"Mixed Pickle","price":"$1.00","vegetarian":true},
@@ -146,7 +146,10 @@
       {"name":"Butter Chicken","desc":"Butter Chicken Sauce, Chicken, Green Peppers & Onions","price":"S$16.99 M$22.99 L$27.99","vegetarian":false},
       {"name":"Chicken Bacon Ranch","desc":"Chicken, Bacon, Ranch, Spinach & Feta Cheese","price":"S$16.99 M$22.99 L$27.99","vegetarian":false},
       {"name":"KDT Special","desc":"Cashew Sauce, Chicken, Onions, Green Peppers","price":"S$16.99 M$22.99 L$27.99","vegetarian":false},
-      {"name":"House Special","desc":"Ham, Pepperoni, Bacon, Green Peppers, Onions & Mushrooms","price":"S$16.99 M$22.99 L$27.99","vegetarian":false}
+      {"name":"House Special","desc":"Ham, Pepperoni, Bacon, Green Peppers, Onions & Mushrooms","price":"S$16.99 M$22.99 L$27.99","vegetarian":false},
+      {"name":"Extra Toppings","desc":"S $2.00 M $2.50 L $3.00","vegetarian":false},
+      {"name":"Extra Cheese","desc":"S $3.00 M $3.50 L $4.00","vegetarian":false},
+      {"name":"Gluten-Free Available","price":"$5.00","vegetarian":false}
     ]
   },
   {
