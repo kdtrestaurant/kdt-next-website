@@ -13,9 +13,14 @@ const poly = Poly({
 
 export const metadata = {
   title: "KDT Restaurant - Delicious Food Made With Love",
-  description: "Experience the best of Indian and International cuisine at KDT Restaurant. Explore our diverse menu, special offers, and more!",
+  description:
+    "Experience the best of Indian and International cuisine at KDT Restaurant. Explore our diverse menu, special offers, and more!",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.svg",       // Default favicon for modern browsers
+    shortcut: "/favicon.svg",   // Shortcut icon for older browsers
+    apple: "/favicon.svg",      // For iOS home screen / Safari
+    // Optional: add a .ico fallback for maximum compatibility
+    // icon: "/favicon.ico",
   },
 };
 

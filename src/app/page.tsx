@@ -1,4 +1,3 @@
-// src/app/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -32,15 +31,19 @@ const GALLERY_IMAGES = [
 
 export default function HomePage() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <main className="text-white">
       {/* HERO */}
-      <section
-        className="relative w-full h-[75vh] flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url('${base}/images/main-page.webp')`,
-        }}
-      >
+      <section className="relative w-full h-[50vh] md:h-[75vh] flex items-center justify-center">
+        <Image
+          src={`${base}/images/main-page.webp`}
+          alt="Hero Background"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
         <div className="text-center z-10">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
             Welcome To<br />KDT Restaurant
@@ -63,18 +66,15 @@ export default function HomePage() {
           Menu Categories
         </h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {MENU_CATEGORIES.map((cat) => {
-
-            return (
-              <Link
-                key={cat}
-                href={`/menu/?category=${encodeURIComponent(cat)}`}
-                className="px-5 py-3 border-2 border-yellow-500 rounded-lg font-bold uppercase hover:bg-yellow-600 hover:border-yellow-600 transition transform hover:scale-105"
-              >
-                {cat}
-              </Link>
-            );
-          })}
+          {MENU_CATEGORIES.map((cat) => (
+            <Link
+              key={cat}
+              href={`/menu/?category=${encodeURIComponent(cat)}`}
+              className="px-5 py-3 border-2 border-yellow-500 rounded-lg font-bold uppercase hover:bg-yellow-600 hover:border-yellow-600 transition transform hover:scale-105"
+            >
+              {cat}
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -88,13 +88,13 @@ export default function HomePage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {GALLERY_IMAGES.map((img, index) => (
-            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+            <div key={index} className="rounded-lg overflow-hidden shadow-lg relative aspect-square">
               <Image
                 src={`${base}${img}`}
                 alt="KDT Food"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover aspect-square"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           ))}
@@ -103,14 +103,14 @@ export default function HomePage() {
 
       {/* BOTTOM RESTAURANT BANNER */}
       <section className="py-12">
-        <div className="w-full rounded-2xl overflow-hidden shadow-xl">
+        <div className="w-full rounded-2xl overflow-hidden shadow-xl relative h-[300px] md:h-[500px] lg:h-[600px]">
           <Image
             src={`${base}/images/main-KDT-Interior.webp`}
             alt="KDT Interior"
-            width={2200}
-            height={1095}
-            className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+            fill
+            className="object-cover"
             priority
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
           />
         </div>
       </section>
