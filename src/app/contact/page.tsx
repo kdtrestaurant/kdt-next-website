@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact KDT Restaurant for reservations, orders, and inquiries.",
+  alternates: { canonical: "/contact/" },
+};
 'use client';
 
 import { useState } from "react";

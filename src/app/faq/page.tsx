@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "FAQ",
+  description:
+    "Frequently asked questions about KDT Restaurant, ordering, and menu options.",
+  alternates: { canonical: "/faq/" },
+};
 "use client";
 
 import { useState, useRef } from "react";

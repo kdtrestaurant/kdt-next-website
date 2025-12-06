@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Blog",
+  description:
+    "Read KDT Restaurant updates, food stories, and announcements.",
+  alternates: { canonical: "/blog/" },
+};
 "use client";
 
 import type { Metadata } from "next";

@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "About",
+  description:
+    "Learn about KDT Restaurant and the story of owner-chef Harpreet behind our handcrafted recipes.",
+  alternates: { canonical: "/about/" },
+};
 import Image from "next/image";
 
 export default function AboutPage() {

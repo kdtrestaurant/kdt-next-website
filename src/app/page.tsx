@@ -29,6 +29,13 @@ const GALLERY_IMAGES = [
   "/images/gallery-Gol-Gappa.webp",
 ];
 
+export const metadata = {
+  title: "Home",
+  description:
+    "Discover KDT Restaurant — Indian and international dishes made with love. Explore our menu and specials.",
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -38,7 +45,7 @@ export default function HomePage() {
       <section className="relative w-full h-[50vh] md:h-[75vh] flex items-center justify-center">
         <Image
           src={`${base}/images/main-page.webp`}
-          alt="Hero Background"
+          alt="KDT Restaurant hero banner showing signature dishes"
           fill
           className="object-cover object-center"
           priority
@@ -91,7 +98,7 @@ export default function HomePage() {
             <div key={index} className="rounded-lg overflow-hidden shadow-lg relative aspect-square">
               <Image
                 src={`${base}${img}`}
-                alt="KDT Food"
+                alt={`KDT food gallery item ${index + 1}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -106,7 +113,7 @@ export default function HomePage() {
         <div className="w-full rounded-2xl overflow-hidden shadow-xl relative h-[300px] md:h-[500px] lg:h-[600px]">
           <Image
             src={`${base}/images/main-KDT-Interior.webp`}
-            alt="KDT Interior"
+            alt="Interior of KDT Restaurant in Chilliwack, BC"
             fill
             className="object-cover"
             priority
