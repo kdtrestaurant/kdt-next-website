@@ -69,6 +69,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={poly.variable}>
       <body>
+        {/* JSON-LD: Breadcrumbs for top-level pages */}
+        <Script id="ld-json-breadcrumb" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://kdtrestaurant.com/" },
+              { "@type": "ListItem", position: 2, name: "About", item: "https://kdtrestaurant.com/about/" },
+              { "@type": "ListItem", position: 3, name: "Menu", item: "https://kdtrestaurant.com/menu/" },
+              { "@type": "ListItem", position: 4, name: "Blog", item: "https://kdtrestaurant.com/blog/" },
+              { "@type": "ListItem", position: 5, name: "FAQ", item: "https://kdtrestaurant.com/faq/" },
+              { "@type": "ListItem", position: 6, name: "Contact", item: "https://kdtrestaurant.com/contact/" },
+            ],
+          })}
+        </Script>
         {/* JSON-LD: Restaurant schema */}
         <Script id="ld-json-restaurant" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({

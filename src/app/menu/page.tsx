@@ -5,13 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import menuData from '../../../data/menu.json';
 
-export const metadata = {
-  title: "Menu",
-  description:
-    "Browse the full KDT Restaurant menu including vegetarian, non-vegetarian, pizzas, and specialty dishes.",
-  alternates: { canonical: "/menu/" },
-};
-
 export default function MenuPage() {
   const router = useRouter();
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
