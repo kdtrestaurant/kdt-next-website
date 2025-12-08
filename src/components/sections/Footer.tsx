@@ -4,7 +4,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-black pt-16 pb-12 border-t-2 border-[#e4b745] text-white font-poly">
+    <footer className="bg-black pt-16 pb-12 border-t-2 border-[#e4b745] text-white font-poly" role="contentinfo">
       <div className="footer-content max-w-6xl mx-auto flex flex-wrap justify-between gap-12 text-center">
 
         {/* HOURS OF OPERATION */}
@@ -33,8 +33,8 @@ export default function Footer() {
         {/* LOGO */}
         <div className="footer-section footer-logo flex-1 min-w-[240px]">
           <div className="logo mx-auto">
-            <a href="/">
-              <img src="/images/kdt-logo.webp" alt="KDT Logo" className="w-44 h-auto mx-auto" />
+            <a href="/" aria-label="KDT Restaurant Home">
+              <img src="/images/kdt-logo.webp" alt="KDT Restaurant Logo" className="w-44 h-auto mx-auto" loading="lazy" />
             </a>
           </div>
         </div>
@@ -67,7 +67,8 @@ export default function Footer() {
             <a
               href="https://www.facebook.com/p/KDT-Restaurant-61571475397206/"
               target="_blank"
-              aria-label="Facebook"
+              rel="noopener noreferrer"
+              aria-label="Visit KDT Restaurant on Facebook"
               className="inline-block"
             >
               <svg
@@ -85,7 +86,8 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/kdt_restaurant/"
               target="_blank"
-              aria-label="Instagram"
+              rel="noopener noreferrer"
+              aria-label="Follow KDT Restaurant on Instagram"
               className="inline-block"
             >
               <svg
@@ -110,13 +112,15 @@ export default function Footer() {
       </div>
 
       {/* COPYRIGHT */}
-      <div className="footer-bottom flex justify-center mt-12 pt-6 border-t border-[#222] text-[13px] opacity-70">
-        <p>
-          © 2025 Kdt.restaurant, All Rights Reserved. Designed By{' '}
-          <a href="https://nutab.ca" target="_blank" rel="noopener noreferrer" className="text-[#e4b745] relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-[#e4b745] after:transition-all hover:after:w-full hover:text-[#f2cc4d]">
-            Nutab Digital
-          </a>
-        </p>
+      <div className="footer-bottom mt-12 pt-6 border-t border-[#222] text-[13px] opacity-70">
+        <div className="flex flex-col items-center gap-1 sm:flex-row sm:justify-center">
+          <p className="text-center">© 2025 Kdt.restaurant, All Rights Reserved.</p>
+          <p className="text-center">Designed By{' '}
+            <a href="https://nutab.ca" target="_blank" rel="noopener noreferrer" className="text-[#e4b745] relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-[#e4b745] after:transition-all hover:after:w-full hover:text-[#f2cc4d]">
+              Nutab Digital
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

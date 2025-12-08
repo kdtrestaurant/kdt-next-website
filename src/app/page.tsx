@@ -32,8 +32,9 @@ const GALLERY_IMAGES = [
 export const metadata = {
   title: "Home",
   description:
-    "Discover KDT Restaurant — Indian and international dishes made with love. Explore our menu and specials.",
+    "Discover KDT Restaurant in Chilliwack — authentic Indian and international dishes made with love. Explore our menu, specials, and order online.",
   alternates: { canonical: "/" },
+  keywords: ["KDT Restaurant", "Indian restaurant Chilliwack", "pizza", "vegetarian", "takeout", "Yarrow"],
 };
 
 export default function HomePage() {

@@ -22,7 +22,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="w-full bg-black text-white z-50 relative">
+    <header className="w-full bg-black text-white z-50 relative" role="banner">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-5 py-4">
         {/* Logo */}
         <div className="logo">
@@ -37,7 +37,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -75,15 +75,16 @@ export default function Navbar() {
         <button
           className="md:hidden text-3xl cursor-pointer hover:text-yellow-500 transition-colors"
           onClick={toggleMenu}
-          aria-label="Toggle Menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
         >
-          ☰
+          {isOpen ? "✕" : "☰"}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden flex flex-col items-center bg-black w-full absolute top-full left-0 pt-4 pb-8 space-y-2">
+        <nav className="md:hidden flex flex-col items-center bg-black w-full absolute top-full left-0 pt-4 pb-8 space-y-2" aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (

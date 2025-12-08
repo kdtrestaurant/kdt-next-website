@@ -1,8 +1,23 @@
 export const metadata = {
   title: "About",
   description:
-    "Learn about KDT Restaurant and the story of owner-chef Harpreet behind our handcrafted recipes.",
+    "Learn about KDT Restaurant in Chilliwack and the story of owner-chef Harpreet behind our handcrafted Indian and international recipes.",
   alternates: { canonical: "/about/" },
+  keywords: ["KDT Restaurant", "About KDT", "Harpreet", "Indian chef", "Chilliwack restaurant", "Yarrow"],
+  openGraph: {
+    type: "website",
+    url: "https://kdtrestaurant.com/about/",
+    title: "About KDT Restaurant - Our Story",
+    description: "Learn about KDT Restaurant in Chilliwack and the story of owner-chef Harpreet behind our handcrafted recipes.",
+    siteName: "KDT Restaurant",
+    images: [{ url: "/images/owner-chef.webp", width: 450, height: 450, alt: "Owner & Chef Harpreet of KDT Restaurant" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About KDT Restaurant - Our Story",
+    description: "Learn about KDT Restaurant in Chilliwack and the story of owner-chef Harpreet behind our handcrafted recipes.",
+    images: ["/images/owner-chef.webp"],
+  },
 };
 import Image from "next/image";
 

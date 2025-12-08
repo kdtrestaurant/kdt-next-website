@@ -1,49 +1,69 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Script from "next/script";
+
+const faqs = [
+  {
+    q: "Do you offer catering services for events?",
+    a: "Yes, we offer catering services. Please call us or use the contact form on our website for inquiries."
+  },
+  {
+    q: "Do you use traditional Indian cooking methods and spices?",
+    a: "Yes, our chef is an experienced Indian chef with over 30 years of expertise in authentic Indian cuisine."
+  },
+  {
+    q: "How accommodating is the staff for dietary restrictions?",
+    a: "We do our best to accommodate all dietary needs so every guest has the best dining experience."
+  },
+  {
+    q: "Do you offer private dining or party reservations?",
+    a: "Yes! We require at least three days' notice. We also post reservation notices on the front door and main entrance. Call the restaurant and ask for the manager for details."
+  },
+  {
+    q: "Is the restaurant family-friendly?",
+    a: "Yes! We are a family-owned restaurant and love welcoming families."
+  },
+  {
+    q: "Do you have gluten-free or dairy-free options?",
+    a: "Yes. Our pakoras use chickpea flour, we offer gluten-free grains in medium size, and several dishes are dairy-free. Please inform your server or manager of any allergies."
+  },
+  {
+    q: "What are the spiciest dishes on your menu?",
+    a: "All dishes can be customized to your preferred spice level — mild, medium, hot, or extra hot."
+  },
+  {
+    q: "What are the must-try dishes at KDT?",
+    a: "Our Chili Chicken and Butter Chicken are highly recommended. Our gravies are made with fresh homemade milk and cream."
+  },
+  {
+    q: "Are there options without meat?",
+    a: "Yes. We have an extensive vegetarian section and several vegan options."
+  }
+];
+
+// Generate FAQ Schema.org JSON-LD
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
 
 export default function FAQPage() {
-  const faqs = [
-    {
-      q: "Do you offer catering services for events?",
-      a: "Yes, we offer catering services. Please call us or use the contact form on our website for inquiries."
-    },
-    {
-      q: "Do you use traditional Indian cooking methods and spices?",
-      a: "Yes, our chef is an experienced Indian chef with over 30 years of expertise in authentic Indian cuisine."
-    },
-    {
-      q: "How accommodating is the staff for dietary restrictions?",
-      a: "We do our best to accommodate all dietary needs so every guest has the best dining experience."
-    },
-    {
-      q: "Do you offer private dining or party reservations?",
-      a: "Yes! We require at least three days' notice. We also post reservation notices on the front door and main entrance. Call the restaurant and ask for the manager for details."
-    },
-    {
-      q: "Is the restaurant family-friendly?",
-      a: "Yes! We are a family-owned restaurant and love welcoming families."
-    },
-    {
-      q: "Do you have gluten-free or dairy-free options?",
-      a: "Yes. Our pakoras use chickpea flour, we offer gluten-free grains in medium size, and several dishes are dairy-free. Please inform your server or manager of any allergies."
-    },
-    {
-      q: "What are the spiciest dishes on your menu?",
-      a: "All dishes can be customized to your preferred spice level — mild, medium, hot, or extra hot."
-    },
-    {
-      q: "What are the must-try dishes at KDT?",
-      a: "Our Chili Chicken and Butter Chicken are highly recommended. Our gravies are made with fresh homemade milk and cream."
-    },
-    {
-      q: "Are there options without meat?",
-      a: "Yes. We have an extensive vegetarian section and several vegan options."
-    }
-  ];
-
   return (
     <div className="w-full px-4 py-10 text-white">
+      {/* FAQ Schema.org JSON-LD for rich results */}
+      <Script id="faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(faqSchema)}
+      </Script>
+
       <div className="max-w-4xl mx-auto">
 
         <h1 className="text-center text-4xl font-bold text-[#e4b745] mb-2">
